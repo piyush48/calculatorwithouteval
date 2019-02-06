@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		  <style>
+           
+            input[type="text"],input[type="reset"],input[type="button"],h3
+            {
+                width:100%;
+                height: 100%;
+                text-align: center;
+                
+            }
+            table,th,td{
+                border: 1px solid black;
+                
+                
+            }
+           
+        </style>
+	</head>
+	<body>
+		   
+		  <table>
+                <tr> 
+                  <td colspan="4"><h3> CALCULATOR</h3></td>
+                </tr>
+                <tr> 
+                       <td colspan="4"> <input type="text"id="val" placeholder="0" size="20%"disabled> </td>
+                       
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1" onclick="display(this.value)"> </td>
+                        <td><input type="button" value="2"onclick="display(this.value)"> </td>
+                        <td><input type="button" value="3" onclick="display(this.value)"> </td>
+                        <td><input type="button" value="+" onclick="display(this.value)"> </td>
+                    </tr>
+                    <tr>
+                            <td><input type="button"value="4"  onclick="display(this.value)"> </td>
+                            <td><input type="button"value="5"  onclick="display(this.value)"> </td>
+                            <td><input type="button"value="6"  onclick="display(this.value)"> </td>
+                            <td><input type="button"value="-"  onclick="display(this.value)"> </td>
+                        </tr>
+                        <tr>
+                                <td><input type="button"value="7"  onclick="display(this.value)"> </td>
+                                <td><input type="button"value="8"  onclick="display(this.value)"> </td>
+                                <td><input type="button"value="9"  onclick="display(this.value)"> </td>
+                                <td><input type="button"value="*"  onclick="display(this.value)"> </td>
+                            </tr>
+                            <tr>
+                                    <td><input type="button"value="0"  onclick="display(this.value)"> </td>
+                                    <td><input type="button"value="."  onclick="display(this.value)"> </td>
+                                    <td><input type="button"value="=" onclick="compute()"> </td>
+                                    <td><input type="button"value="/"  onclick="display(this.value)"> </td>
+                                </tr>
+                                <tr> <td colspan="4"><input type="reset" value="reset"onclick="clr()" /></td></tr>
+            </table>
+        
+
+            <script type="text/javascript">
+            	function display(x)
+            	{
+            		document.getElementById('val').value+=x;   //function to take the input
+            	}
+            	function clr()
+            	{
+            		
+            		document.getElementById('val').value="";  //fuction to reset the value
+            	}
+            	function compute()
+                {
+                    var arr=['+','-','*','/'];
+                    var res;
+                    var operator;
+                    var Number;
+
+
+                    var exp=document.getElementById('val').value;
+                    console.log(exp,'e');
+
+                    arr.map(oper => {
+                     if(exp.indexOf(oper) !== -1) {       //how it works
+                          operator = oper;
+                          console.log(operator,'op');
+                }
+            });       
+                      if(operator=='+')
+                      {
+                              var num=exp.split('+');
+                              console.log(num);
+                              document.getElementById('val').value=parseInt(num[0])+parseInt(num[1]);
+
+                      }
+                           if(operator=="-")
+                           {
+                             var num=exp.split('-');
+                              console.log(num);
+                              document.getElementById('val').value=parseInt(num[0])-parseInt(num[1]);
+
+                           }      
+
+                            if(operator=="*")
+                           {
+                             var num=exp.split('*');
+                              console.log(num);
+                              document.getElementById('val').value=parseInt(num[0])*parseInt(num[1]);
+
+                           }   
+
+                            if(operator=="/")
+                           {
+                             var num=exp.split('/');
+                              console.log(num);
+                              document.getElementById('val').value=parseInt(num[0])/parseInt(num[1]);
+
+                           }       
+
+                }
+             </script>
+	</body>
+</html>
